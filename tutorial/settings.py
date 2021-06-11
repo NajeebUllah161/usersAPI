@@ -136,4 +136,8 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.MD5PasswordHasher',
+]
+
 django_heroku.settings(locals())
