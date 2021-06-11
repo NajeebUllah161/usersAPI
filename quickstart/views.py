@@ -1,7 +1,10 @@
 from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
+from rest_framework import viewsets,status,generics
+from rest_framework.response import Response
 from rest_framework import permissions
 from quickstart.serializers import UserSerializer, GroupSerializer
+from .serializers import ChangePasswordSerializer
+from rest_framework.permissions import IsAuthenticated   
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -20,3 +23,5 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+    
+    
